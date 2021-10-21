@@ -1,3 +1,5 @@
+Link:-https://open.kattis.com/problems/pot
+
 #include <iostream>
 #include <cmath>
 using namespace std;
