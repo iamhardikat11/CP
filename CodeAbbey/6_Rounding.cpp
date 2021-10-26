@@ -9,14 +9,14 @@ int main() {
 	cin>>t;
 	while(t--)
 	{
-	     double a,b;
-         cin>>a>>b;
-	     double d=a/b;
-         double f=d-(long)d;
-         if(d>=0){
-         if(f>=0.5)
+	  double a,b;
+          cin>>a>>b;
+	  double d=a/b;
+          double f=d-(long)d;
+          if(d>=0){
+            if(f>=0.5)
              cout<<(d-f)+1<<" ";
-         else if(f<0.5)
+            else if(f<0.5)
               cout<<(d-f)<<" ";
          }
          else{
