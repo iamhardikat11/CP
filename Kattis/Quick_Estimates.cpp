@@ -1,25 +1,15 @@
 //Link:-https://open.kattis.com/problems/quickestimate
-#include <bits/stdc++.h>
+#include <iostream> //I used <bits/stdc++.h> first and hence showed me wrong answer.
+#include <string>
+
 using namespace std;
-void solve(int N)
-{
-  int digits=0;
-  while(N!=0)
-  {
-    digits++;
-    N=N/10;
-  }
-  cout<<digits<<"\n";
-  return;
-}
-int main()
-{
-  int t,N;
-  cin>>t;
-  while(t--)
-  {
-    cin>>N;
-    solve(N);
-  }
-  return 0;
+
+int main() {
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string num;
+        cin >> num;
+        cout << num.length() << endl;
+    }
 }
