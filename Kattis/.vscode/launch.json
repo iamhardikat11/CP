@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "/Users/hardiksoni/Desktop/Project Folder/Python Projects/CP/Kattis",
+      "environment": [],
+      "program": "/Users/hardiksoni/Desktop/Project Folder/Python Projects/CP/Kattis/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "externalConsole": true
+    }
+  ]
+}
