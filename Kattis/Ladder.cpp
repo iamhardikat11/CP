@@ -4,9 +4,8 @@
 using namespace std;
 int main()
 {
-    int h,v;
+    double h,v;
     cin>>h>>v;
-    cout<<ceil((float)h/sin((v*3.142/180.0)));
+    cout<<int(ceil(h/sin(((v*3.142)/180.0))));
     return 0;
-
 }
