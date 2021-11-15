@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": true,
-      "cwd": "/Users/hardiksoni/Desktop/Project Folder/Python Projects/CP/Kattis",
+      "cwd": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/Kattis",
       "environment": [],
-      "program": "/Users/hardiksoni/Desktop/Project Folder/Python Projects/CP/Kattis/build/Debug/outDebug",
+      "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/Kattis/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "lldb",
       "externalConsole": true
