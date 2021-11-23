@@ -23,14 +23,9 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-
-
-void solve(int arr[],int N) {
-     int mn = arr[0];
-     for(int i=0;i<N;i++)
-      if(arr[i] < mn)
-       mn = arr[i];
-     cout << (N-1)*mn <<endl;
+void solve(vector<int> v,int N) {
+     sort(all(v));
+     cout << (N-1)*v[0] <<endl;
 }
 
 int main() {
@@ -42,9 +37,13 @@ int main() {
      //    printf("Case #",t,": "); 
      int N;
      cin  >> N;
-     int arr[N];
+     vector<int> v;
      for(int i=0;i<N;i++)
-      cin >> arr[i];
-     solve(arr,N);
+     {
+          int a;
+          cin >> a;
+          v.push_back(a);
+     }
+     solve(v,N);
     }
 }
