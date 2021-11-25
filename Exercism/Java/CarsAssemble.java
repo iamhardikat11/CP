@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
 public class CarsAssemble {
 
     public double productionRatePerHour(int speed) {
@@ -25,5 +28,11 @@ public class CarsAssemble {
         else
             return (int)Math.floor((10*221*0.77)/60);
         
+    }
+    public static void main()
+    {
+        Scanner sc = new Scanner(System.in);
+        int speed = sc.nextInt();
+        System.out.println(productionRatePerHour(speed)+ " " +workingItemsPerMinute(speed));
     }
 }
