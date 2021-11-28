@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/CSES Problem Set",
+      "environment": [],
+      "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/CSES Problem Set/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "externalConsole": true
+    }
+  ]
+}
