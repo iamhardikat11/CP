@@ -4,7 +4,7 @@ func main()
 {
   /* This is a multi-line comment 
      You can type within this section. */
-  fmt.println("Go!")
+  fmt.Println("Go!")
   // This is a Single-Line Comment
-  fmt.println("Lang!")
+  fmt.Println("Lang!")
 }
