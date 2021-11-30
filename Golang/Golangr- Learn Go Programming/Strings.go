@@ -3,5 +3,5 @@ import "fmt"
 func main()
 {
   var str1 = "This is a String Variable!"
-  fmt.println(str1)
+  fmt.Println(str1)
 }
