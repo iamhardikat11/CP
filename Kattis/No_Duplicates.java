@@ -1,27 +1,22 @@
-//Link:-https://open.kattis.com/problems/nodup
 import java.util.*;
-public class No_Duplicates
-{
-    public static void main(String[] args)
-    {
-        String s;
-        Scanner in = new Scanner(System.in);
-        s = in.nextLine();
-        for(int i=0; i<s.length(); i++)
+import java.lang.*;
+import java.io.*;
+public class No_Duplicates {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = "";
+        ArrayList<String> v = new ArrayList<>();
+        while(sc.hasNext())
         {
-            int j = s.indexOf(' ');
-            String a = s.substring(0,j);
-            s = s.substring(j+1);
-            for(int k=j; k<(s.length()-1); k++)
+            s = sc.next();
+            if(v.contains(s))
             {
-                String c = s.substring(k,s.indexOf(' '));
-                if(a.equals(c))
-                {
-                    System.out.println(false);
-                    break;
-                }
-            }  
+                System.out.println("no");
+                return;
+            }
+            else
+                v.add(s);
         }
-        System.out.println(true);
+        System.out.println("yes");
     }
 }
