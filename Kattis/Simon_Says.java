@@ -1,16 +1,18 @@
+import java.io.*;
 import java.util.*;
-public class Simon_Says
-{
-    public static void main(String[] args)
-    {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
-        String s = in.nextLine();
-        for(int i = 0;i<N;i++)
+import java.lang.*;
+public class Simon_Says {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        String s = sc.nextLine();
+        while(t-->0)
         {
-            s = in.nextLine();
-            if(s.substring(0,10).equals("Simon says"))
-                System.out.println(s.substring(10,s.indexOf('.')+1));
+            s = sc.nextLine();
+            if(s.contains("Simon says"))
+            {
+                System.out.println(s.substring(11));
+            }
         }
     }
 }
