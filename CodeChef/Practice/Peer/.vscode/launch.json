@@ -11,7 +11,7 @@
       "environment": [],
       "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/CodeChef/Practice/Peer/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
-      "MIMode": "gdb",
+      "MIMode": "lldb",
       "externalConsole": true
     }
   ]
