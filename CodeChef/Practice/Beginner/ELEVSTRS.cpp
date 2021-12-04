@@ -33,8 +33,8 @@ int main() {
         int N,V1,V2;
         scanf("%d%d%d",&N,&V1,&V2);
         if(((sqrt(2)*V1)/V2)<1)
-         printf("Stairs\n");
-        else 
          printf("Elevator\n");
+        else 
+         printf("Stairs\n");
     }
 }
