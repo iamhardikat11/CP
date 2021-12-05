@@ -7,16 +7,19 @@ public class RETO6
     {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        String a = "I hate it";
-        String b = "I love it";
+        String a = "I hate that";
+        String b = "I love that";
         StringBuilder s = new StringBuilder();
-        for(int i=1;i<=N;i++)
+        for(int i=1;i<N;i++)
         {
             if(i%2==0)
                 s.append(b).append(" ");
             else
                 s.append(a).append(" ");
         }
-        System.out.println(s.substring(0,s.length()-1));
+        if(N%2==0)
+            System.out.println(s.toString()+"I love it");
+        else
+            System.out.println(s.toString()+"I hate it");
     }
 }
