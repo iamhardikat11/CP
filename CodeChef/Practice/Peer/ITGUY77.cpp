@@ -14,13 +14,19 @@ int main()
                 printf(" ");
                for(int j=1;j<=2*i-1;j++)
                {
-                    if(i%2==0)
+                    if(N%2==0)
                     {
-                      printf("%c",j%2==0?'A':'*');   
+                      if(i%2==0)
+                       printf("%c",j%2==0?'A':'*');
+                      else
+                       printf("%c",j%2==0?'*':'A');
                     }
                     else
                     {
-                      printf("%c",j%2==0?'*':'A');   
+                      if(i%2==0)
+                       printf("%c",j%2==0?'*':'A');
+                      else
+                       printf("%c",j%2==0?'A':'*');   
                     }
                }
                printf("\n");
