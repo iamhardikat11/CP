@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [
+        ""
+      ],
+      "stopAtEntry": true,
+      "cwd": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/SPOJ/Classical",
+      "environment": [],
+      "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/SPOJ/Classical/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "lldb",
+      "externalConsole": false
+    }
+  ]
+}
