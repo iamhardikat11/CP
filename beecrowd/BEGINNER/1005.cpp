@@ -9,8 +9,8 @@ int main() {
      * Code your solution here
      * Escriba su solución aquí
      */
-    float A,B;
-    scanf("%f%f",&A,&B);
-    printf("MEDIA = %.5f\n",(A+B)/2.0);
+    double A,B;
+    scanf("%lf%lf",&A,&B);
+    printf("MEDIA = %.5f\n",(A*0.35+B*0.75)/2);
     return 0;
 }
