@@ -11,6 +11,6 @@ int main() {
      */
     double a;
     cin >> a;
-    printf("VOLUME = %.3lf\n",4.0/3*3.14159*R*R*R);
+    printf("VOLUME = %.3lf\n",4.0/3*3.14159*a*a*a);
     return 0;
 }
