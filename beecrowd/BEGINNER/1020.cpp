@@ -15,6 +15,6 @@ int main() {
     N = N%365;
     int b = N/30;
     N = N%30;
-    printf("%d  ano(s)\n%d mes(es)\n%d dia(s)\n",a,b,N);
+    printf("%d ano(s)\n%d mes(es)\n%d dia(s)\n",a,b,N);
     return 0;
 }
