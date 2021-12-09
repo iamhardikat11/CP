@@ -13,15 +13,15 @@ int main() {
     cin >> X >> Y;
     switch(X)
     {
-        case 1: cout << "TOTAL : R$ " << 4.00*Y <<endl;
+        case 1: printf("Total: R$ %.2lf\n",4.00*Y);
                 break;
-        case 2: cout << "TOTAL : R$ " << 4.50*Y <<endl;
+        case 2: printf("Total: R$ %.2lf\n",4.50*Y);
                 break;
-        case 3: cout << "TOTAL : R$ " << 5.00*Y <<endl;
+        case 3: printf("Total: R$ %.2lf\n",5.00*Y);
                 break;
-        case 4: cout << "TOTAL : R$ " << 2.00*Y <<endl;
+        case 4: printf("Total: R$ %.2lf\n",2.00*Y);
                 break;
-        case 5: cout << "TOTAL : R$ " << 1.50*Y <<endl;
+        case 5: printf("Total: R$ %.2lf\n",1.50*Y);
                 break;
     }
     return 0;
