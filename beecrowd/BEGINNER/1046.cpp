@@ -13,9 +13,7 @@ int main() {
     cin >> a >> b;
     if(b>a)
      printf("O JOGO DUROU %d HORA(S)\n",(b-a));
-    else if(a==b)
-     printf("O JOGO DUROU %d HORA(S)\n",24);
     else
-     printf("O JOGO DUROU 10 HORA(S)\n",(24-a+b));
+     printf("O JOGO DUROU %d HORA(S)\n",(24-a+b));
     return 0;
 }
