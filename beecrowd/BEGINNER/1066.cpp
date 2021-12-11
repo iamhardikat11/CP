@@ -1,9 +1,9 @@
 #include <iostream>
- 
+
 using namespace std;
- 
+
 int main() {
- 
+
     /**
      * Escreva a sua solução aqui
      * Code your solution here
@@ -15,13 +15,13 @@ int main() {
     {
         cin >> arr[i];
         if(arr[i]%2==0)
-         e++;
-        else
-         o++;
+            e++;
+        if(arr[i]%2!=0)
+            o++;
         if(arr[i]>0)
-         p++;
-        else
-         n++;
+            p++;
+        if(arr[i]<0)
+            n++;
     }
     printf("%d valor(es) par(es)\n",e);
     printf("%d valor(es) impar(es)\n",o);
