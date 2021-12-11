@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
 int main() {
@@ -12,10 +11,12 @@ int main() {
      */
     double a,b,c;
     cin >> a >> b >> c;
-    if(a!=0 && pow(b,2)<4*a*c) {
-        printf("R1 = %.5lf\n", (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a));
-        printf("R2 = %.5lf\n", (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a));
-    }
+    if(a==0.0 || pow(b,2)<4*a*c)
+        printf("Impossivel calcular\n");
     else
-        cout << "Impossivel calcular\n";
+    {
+        printf("R1 = %.5lf\n",(-b+sqrt(pow(b,2)-4*a*c))/(2*a));
+        printf("R2 = %.5lf\n",(-b-sqrt(pow(b,2)-4*a*c))/(2*a));
+    }
+    return 0;
 }
