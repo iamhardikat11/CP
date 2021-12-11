@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
@@ -10,15 +9,12 @@ int main() {
      * Code your solution here
      * Escriba su solución aquí
      */
-    int x,y;
-    cin >> x >> y;
-    int X = min(x,y);
-    int Y = max(x,y);
-    int sum = 0;
-    for(int i=(((X+1)%2==0)?X+2:X+1);i<Y;i+=2)
+    int X;
+    cin >> X;
+    int count = 1;
+    for(int i=(X%2==0)?X+1:X;count<=6;i+=2,count++)
     {
-        sum+=i;
+        printf("%d\n",i);
     }
-    printf("%d\n",sum);
     return 0;
 }
