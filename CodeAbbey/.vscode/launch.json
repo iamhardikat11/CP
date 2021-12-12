@@ -9,9 +9,9 @@
         ""
       ],
       "stopAtEntry": true,
-      "cwd": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/Kattis",
+      "cwd": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/CodeAbbey",
       "environment": [],
-      "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/Kattis/build/Debug/outDebug",
+      "program": "/Users/hardiksoni/Documents/Project Folder/Python Projects/CP/CodeAbbey/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "lldb",
       "externalConsole": false
