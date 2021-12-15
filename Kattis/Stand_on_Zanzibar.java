@@ -1,31 +1,31 @@
-//Link:-https://open.kattis.com/problems/zanzibar
+import java.lang.*;
+import java.io.*;
 import java.util.*;
-public class Stand_on_Zanzibar
-{
-    public static void solve(int N)
+public class Stand_on_Zanzibar {
+    public static int solve(ArrayList<Integer> v)
     {
-        if(N=1000000)
+        int sum = 0;
+        for(int i=0;i<v.size()-1;i++)
         {
-            System.out.println(N);
-            return;
-        } 
-        else if
-        
+            if(v.get(i+1)-2*v.get(i)>0)
+                sum+=v.get(i+1)-2*v.get(i);
+        }
+        return sum;
     }
-    public static void main(String[] args)
-    {
-        int t;
-        Scanner in = new Scanner(System.in);
-        t = in.nextInt();
-        while(t--)
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0)
         {
-            int N;
-            N = in.nextInt();
-            while(N!=0)
+            ArrayList<Integer> v = new ArrayList<>();
+            int n = sc.nextInt();
+            while (n!=0)
             {
-                solve(N);
-                N = in.nextInt();
+                v.add(n);
+                n = sc.nextInt();
             }
+            System.out.println(solve(v));
+
         }
     }
 }
