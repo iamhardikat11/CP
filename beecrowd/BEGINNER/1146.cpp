@@ -14,7 +14,12 @@ int main() {
     while(A!=0)
     {
         for(int i = 1; i<=A; i++)
-         printf("%d ", i);
+        {
+            if(i!=A)
+             printf("%d ", i);
+            else
+             printf("%d",i);
+        }
         printf("\n");
         cin >> A;
     }
