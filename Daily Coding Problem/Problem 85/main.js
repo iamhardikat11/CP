@@ -1,6 +1,6 @@
 function calculate(x,y,b)->{
   if(b&1)
-    return x
+    return x;
   else
-    return y
+    return y;
 }
