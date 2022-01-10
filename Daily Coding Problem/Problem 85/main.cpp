@@ -7,7 +7,7 @@ int ret()
   cout.tie(0);
   int x,y,b;
   cin >> x >> y >> b;
-  if(x&1)
+  if(b&1)
     return x;
   else
     return y;
