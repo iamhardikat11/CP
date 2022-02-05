@@ -15,7 +15,7 @@ int main()
   {
     for(int j=0;j<angles.size();j++)
     {
-      angles[j]+=A[i];
+      angles[j]=(A[i]+angles[j])%360;
     }
     angles.push_back(0);
   }
