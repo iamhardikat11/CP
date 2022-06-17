@@ -10,7 +10,7 @@ int main()
         if(a[i]=='A') cnt++;
         else b.push_back(a[i]);
     }
-    if(b!="KIHBR" || cnt>4) cout << "NO" << endl;
+    if(b!="KIHBR") cout << "NO" << endl;
     else
     {
         vector<int> x(6,0);
