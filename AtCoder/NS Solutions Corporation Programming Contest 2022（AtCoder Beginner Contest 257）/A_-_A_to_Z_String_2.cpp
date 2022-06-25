@@ -20,8 +20,8 @@ const ld EPS = 1e-9;
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    string a;
-    cin >> a;
-    
+    int N,X;
+    cin >> N >> X;
+    (X%N==0) ? cout << (char)('A'+(int)floor(X/N)-1) : cout << (char)('A'+(int)floor(X/N))<< endl;
     return 0;
 }

@@ -20,8 +20,22 @@ const ld EPS = 1e-9;
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    string a;
-    cin >> a;
-    
+    int N;
+    cin >> N;
+    vector<pair<int,int>> v(N-1);
+    vector<int> x(N+1,0);
+    for(int i=0;i<N-1;i++) {
+        cin >> v[i].first >> v[i].second;
+        x[v[i].first]++;
+        x[v[i].second]++;
+    }
+    for(int i=1;i<N+1;i++)
+    {
+        if(x[i]==N-1) {
+            cout << "Yes" << endl;
+            return 0;
+        }
+    }
+    cout << "No" << endl;
     return 0;
 }
