@@ -24,6 +24,31 @@ int main() {
     cin >> a;
     int K;
     cin >> K;
-    
+    // greedy approach to the problem 
+    // in it what we will do is check for each character to minimise it.
+    for(int i=0;i<a.size();i++)
+    {
+        if(a[i]=='a') continue;
+        int op = 'z'-a[i]+1;
+        if(K>=op) {
+            K-=op;
+            a[i] = 'a';
+        }
+    }
+    // Important miss:-
+    K = K%26;
+    int i = a.size()-1;
+    while(K)
+    {
+        if(a[i]=='z') {
+            a[i] = 'a';
+            i--;
+            K--;
+            continue;
+        }
+        a[i] = (char)(a[i]+1);
+        K--;
+    }
+    cout << a << endl;
     return 0;
 }
