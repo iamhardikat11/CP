@@ -22,18 +22,43 @@ int main() {
     cin.tie(0); cout.tie(0);
     int M,N;
     cin >> M >> N;
-    vector<vector<string> > image(M, vector<string> (M));
-    vector<vector<string> > temp(N,vector<string> (N));
-    for(int i=0;i<M;i++)
-    {
+    vector<string> image(M);
+    vector<string> temp(N);
+    for(int i=0;i<M;i++) {
         cin >> image[i];
     }
     for(int i=0;i<N;i++) {
         cin >> temp[i];
     }
-    for(int i=0;i<M;i++)
+    bool found =  false;
+    for(int i=0;i<M-N+1;i++)
     {
-        for(int j=0;j<)
+        for(int j=0;j<M-N+1;j++)
+        {
+            bool flag = true;
+            for(int x = i; x < N+i; x++)
+            {
+                for(int y=j; y< N+j; y++)
+                {
+                    if(image[x][y]!=temp[x-i][y-j])
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if(!flag)
+                {
+                    break;
+                }
+            }
+            if(flag)
+            {
+                found = true;
+                break;
+            }
+        }
     }
+    if(found) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
