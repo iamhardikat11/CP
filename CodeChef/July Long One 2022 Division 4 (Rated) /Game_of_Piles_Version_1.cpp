@@ -18,25 +18,17 @@ const ll INF = 1e9;
 const ld EPS = 1e-9;
 
 int main() {
-    ios_base::sync_with_stdio(0); 
+    ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("output.txt", "w", stderr);
     int t;
     cin >> t;
-    for(int i = 0; i < t; i++) {
-        string a;
-        cin >> a;
-        vector<int> hash(26,0);
-        for(int j = 0; j < a.size(); j++) hash[a[i]-65]++;
-
-        int K;
-        cin >> K;
-        vector<pair<int,int>> V(K);
-        for(int j = 0; j < K; j++) 
-            cin >> V[j].first >> V[j].second;
+    while (t--) {
+        int N;
+        cin >> N;
+        vector<int> a(N);
+        for(int i=0;i<N;i++) cin >> a[i];
         
+
     }
     return 0;
 }
