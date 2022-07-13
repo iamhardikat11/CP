@@ -53,25 +53,16 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n,l,r;
-    cin >> n >> l >> r;
-    assert(l+r==n);
-    map<int,int> L,R;
-    vector<int> left(l);
-    for(auto &x: left) {
-        cin >> x;
-        L[x]++;
-    }
-    vector<int> right(r);
-    for(auto &x: right) {
-        cin >> x;
-        R[x]++;
-    }   
-    if(l==r)
+    int N;
+    cin >> N;
+    for(int i=0;i<=(N/2);i++)
     {
-        
+        if((N-2*i)%7==0) {
+            cout << "YES" << endl;
+            return;
+        }
     }
-
+    cout << "NO" << endl;
 }
 int main()
 {

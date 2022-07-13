@@ -52,26 +52,14 @@ double eps = 1e-12;
 #define sz(x) ((ll)(x).size())
  
 
-void solve(){
-    int n,l,r;
-    cin >> n >> l >> r;
-    assert(l+r==n);
-    map<int,int> L,R;
-    vector<int> left(l);
-    for(auto &x: left) {
-        cin >> x;
-        L[x]++;
-    }
-    vector<int> right(r);
-    for(auto &x: right) {
-        cin >> x;
-        R[x]++;
-    }   
-    if(l==r)
-    {
-        
-    }
-
+bool solve(string a, int N)
+{
+    if(N==0 || N==1) return true;
+    if(N&1) return solve(a.substr(0, N-1), N-1);
+    string p = a.substr(0, N/2);
+    string q = a.substr(N/2, N/2);
+    if(p==q) return solve(a.substr(0,N/2), N/2);
+    return false;
 }
 int main()
 {
@@ -79,7 +67,11 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
-    solve();
+    int N;
+    cin >> N;
+    string a;
+    cin >> a;
+    solve(a,N)? cout << "YES" << endl : cout << "NO" << endl;
  }
  return 0;
 }

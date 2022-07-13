@@ -53,25 +53,39 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n,l,r;
-    cin >> n >> l >> r;
-    assert(l+r==n);
-    map<int,int> L,R;
-    vector<int> left(l);
-    for(auto &x: left) {
-        cin >> x;
-        L[x]++;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    map<int,int> m;
+    int gre = INT_MIN;
+    for(int i=0;i<n;i++) {
+        cin >> v[i];
+        gre = max(gre,v[i]);
+        m[v[i]]++;
     }
-    vector<int> right(r);
-    for(auto &x: right) {
-        cin >> x;
-        R[x]++;
-    }   
-    if(l==r)
+    int cnt=0;
+    int ele = -1;
+    int mn = 0;
+    int r = 1;
+    for(auto it = m.begin(); it != m.end(); ++it)
     {
-        
+        if((*it).second==1) {
+            cnt++;
+            ele = (*it).first;
+        }
+        else{
+            mn=max(mn,(*it).second);
+        }
     }
-
+    if(cnt==1 && ele == gre) 
+    {
+        if(mn<=2) r = mn;
+        cout << r << endl;
+    }
+    else
+    {
+        cout << floor((cnt+1)/2.0) << endl;
+    }
 }
 int main()
 {

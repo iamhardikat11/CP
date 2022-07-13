@@ -53,25 +53,9 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n,l,r;
-    cin >> n >> l >> r;
-    assert(l+r==n);
-    map<int,int> L,R;
-    vector<int> left(l);
-    for(auto &x: left) {
-        cin >> x;
-        L[x]++;
-    }
-    vector<int> right(r);
-    for(auto &x: right) {
-        cin >> x;
-        R[x]++;
-    }   
-    if(l==r)
-    {
-        
-    }
-
+    int X;
+    cin>>X;
+    cout << X%10 << endl;
 }
 int main()
 {
