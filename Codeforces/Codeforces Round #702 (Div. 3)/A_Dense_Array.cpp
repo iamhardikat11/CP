@@ -53,10 +53,22 @@ double eps = 1e-12;
  
 
 void solve(){
-     int n,m;
-     cin >> n >> m;
-     vector<vector<int>> v(n, vector<int> (m));
-     for(int i=0;i<)
+    int n;
+    cin >> n;
+    vector<int> v(n); 
+    for(auto &x: v) cin >> x;
+    int cnt=0;
+    for(int i = 0; i < v.size()-1; i++)
+    {
+        if((max(v[i],v[i+1])/(double)min(v[i],v[i+1]))<=2) continue;
+        else
+        {
+            v.insert(v.begin()+i+1, ceil((v[i]+v[i+1])/2.0));
+            cnt++;
+            i++;
+        }
+    }
+    cout << cnt << endl;
 }
 int main()
 {
