@@ -16,15 +16,20 @@ const int MAX_N = 1e5 + 5;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-
+bool cmp(const pair<int,int> a, const pair<int,int> b)
+{
+    return (a.second > b.second || a.first > b.first);
+}
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
     int N,M;
     cin >> N >> M;
     vector<int> w(N);
+    sort(w.begin(), w.end());
     vector<pair<int,int>> v(M);
     for(int i=0; i<M; i++) cin >> v[i].first >> v[i].second;
+    sort(v.begin(), v.end(), cmp);
     
     return 0;
 }
