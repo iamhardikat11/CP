@@ -16,23 +16,26 @@ const int MAX_N = 1e5 + 5;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-bool cmp(const pair<int,int> a, const pair<int,int> b)
-{
-    return (a.second > b.second || a.first > b.first);
-}
+
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    int N,M;
+    ll N,M;
     cin >> N >> M;
-    vector<int> w(N);
-    sort(w.begin(), w.end());
-    vector<pair<int,int>> v(M);
-    for(int i=0; i<M; i++) cin >> v[i].first >> v[i].second;
-    sort(v.begin(), v.end(), cmp);
-    int flag = 0;
-    
-    if(flag) cout << -1 << endl;
-    else cout << ans << endl;   
+    vector<ll> a(N),b(N);
+    vector<pair<ll,ll>> e(M);
+    pair<ll,ll> sum = {0,0};
+    forn(i,N){
+        cin >> a[i];
+        sum.first+=a[i];
+    }
+    forn(i,N){
+        cin >> b[i];
+        sum.second+=b[i];
+    }
+    forn(i,M)
+        cin >> e[i].first >> e[i].second;
+    if(sum.first==sum.second) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
