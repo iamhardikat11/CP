@@ -20,5 +20,9 @@ const ld EPS = 1e-9;
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
+    string a;
+    cin >> a;
+    if(a.compare("ABC")==0) cout << "ARC" << endl;
+    else cout << "ABC" << endl;
     return 0;
 }
