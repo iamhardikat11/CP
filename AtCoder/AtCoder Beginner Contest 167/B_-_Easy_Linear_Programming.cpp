@@ -53,26 +53,23 @@ double eps = 1e-12;
  
 
 void solve(){
-    int N;
-    cin >> N;
-    vector<int> v(N+1);
-    for(int i=1;i<=N;i++) cin >> v[i];
-    vector<int> l(N+1,0);
-    vector<int> r(N+1,0);
-    int cnt = 0;
-    map<int,int> m1,m2;
-    for(int i=1;i<=N;i++)
+    int A,B,C;
+    cin >> A >> B >> C;
+    int K;
+    cin >> K;
+    if(K<=A) cout << K << endl;
+    else if(K>A && K<=A+B)
     {
-        l[i] = i+v[i];
-        m1[l[i]]++;
-        r[i] = i-v[i];
-        m2[r[i]]++;
+        cout << A << endl;
     }
-    for(auto it = m1.begin(); it != m1.end(); ++it)
+    else if(K>A+B && K<=A+B+C)
     {
-        cnt+=m2[(*it)];
+        cout << A-(K-A-B) << endl;
     }
-    cout << cnt << endl;
+    else
+    {
+        cout << A-C << endl;
+    }
 }
 int main()
 {

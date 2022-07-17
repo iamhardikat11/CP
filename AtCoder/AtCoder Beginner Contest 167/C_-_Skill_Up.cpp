@@ -51,28 +51,22 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
  
-
+bool compare(v32 a, v32 b)
+{
+    for(int i=0; i < a.size();i++)
+    {
+        if(a[i])
+    }
+}
 void solve(){
-    int N;
-    cin >> N;
-    vector<int> v(N+1);
-    for(int i=1;i<=N;i++) cin >> v[i];
-    vector<int> l(N+1,0);
-    vector<int> r(N+1,0);
-    int cnt = 0;
-    map<int,int> m1,m2;
-    for(int i=1;i<=N;i++)
+    int N,M,X;
+    cin >> N >> M >> X;
+    vv32 x(N, v32(M+1,0));
+    for(int i=0;i<N;i++)
     {
-        l[i] = i+v[i];
-        m1[l[i]]++;
-        r[i] = i-v[i];
-        m2[r[i]]++;
+        for(int j=0;j<=M;j++) cin >> x[i][j];
     }
-    for(auto it = m1.begin(); it != m1.end(); ++it)
-    {
-        cnt+=m2[(*it)];
-    }
-    cout << cnt << endl;
+    sort(x.begin(), x.end(), cmp);
 }
 int main()
 {

@@ -53,26 +53,45 @@ double eps = 1e-12;
  
 
 void solve(){
-    int N;
-    cin >> N;
-    vector<int> v(N+1);
-    for(int i=1;i<=N;i++) cin >> v[i];
-    vector<int> l(N+1,0);
-    vector<int> r(N+1,0);
-    int cnt = 0;
-    map<int,int> m1,m2;
-    for(int i=1;i<=N;i++)
+    ll N,K;
+    cin >> N >> K;
+    vector<int> v(N);
+    for(auto &x:v) cin >> x;
+    vector<int> mp;
+    // mp.push_back(1);
+    map<int,int> m;
+    // m[1] = 1;
+    int flag = 1;
+    int curr = 1;
+    while(flag)
     {
-        l[i] = i+v[i];
-        m1[l[i]]++;
-        r[i] = i-v[i];
-        m2[r[i]]++;
+        if(m.find(curr)==m.end())
+        {
+                mp.push_back(curr);
+                m[curr]++;
+                curr = v[curr-1];
+        }
+        else
+            flag = 0;
     }
-    for(auto it = m1.begin(); it != m1.end(); ++it)
+    ll idx = -1;
+    for(ll i=0;i<mp.size();i++)
     {
-        cnt+=m2[(*it)];
+        if(mp[i]==curr)
+        {
+            idx = i;
+            break;
+        }
     }
-    cout << cnt << endl;
+    if(K<=(idx+1))
+    {
+            cout << v[K-1] << endl;
+            return;
+    }
+    K-=idx;
+    curr = mp[idx];
+    K = K%(mp.size()-idx);
+    cout << mp[idx+K] << endl;
 }
 int main()
 {
