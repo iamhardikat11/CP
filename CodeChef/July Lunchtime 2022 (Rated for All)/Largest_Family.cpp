@@ -57,7 +57,18 @@ void solve(){
     cin >> N;
     vector<int> v(N);
     for(auto &x: v) cin >> x;
-    
+    sort(v.begin(), v.end());
+    int sum=0;
+    int cnt = 0;
+    for(int i=0;i<v.size();i++)
+    {
+        if(sum+v[i]<N)
+        {
+            sum+=v[i];
+            cnt++; 
+        }
+    }
+    cout << cnt << endl;
 }
 int main()
 {

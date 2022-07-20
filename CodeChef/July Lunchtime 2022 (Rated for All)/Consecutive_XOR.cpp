@@ -55,26 +55,17 @@ double eps = 1e-12;
 void solve(){
     int n;
     cin >> n;
-    vector<int> A(n);
-    for(auto &x:A) cin >> x;
-    vector<int> B(n);
-    for(auto &x:B) cin >> x;
-    sort(A.begin(), A.end());
-    sort(B.begin(), B.end());
-    vector<int> x;
-    vector<int> y;
-    int res=INT_MAX;
-    for(int i=n/2;i<n;i++)
+    string a,b;
+    cin >> a >> b;
+    int flag = 0;
+    for(int i=0; i<n; i++)
     {
-        x.push_back(A[i]);
-        y.push_back(B[i]);
+        if(a[i]!=b[i])
+        {
+
+        }
     }
-    n = x.size();
-    for(int i=0;i<x.size();i++)
-    {
-        res = min(res,x[i]+y[n-1-i]);
-    }
-    cout << res << endl;
+    
 }
 int main()
 {

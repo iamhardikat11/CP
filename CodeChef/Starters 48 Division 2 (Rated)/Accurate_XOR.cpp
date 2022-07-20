@@ -50,31 +50,52 @@ double eps = 1e-12;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
- 
-
+map<int, bool> visited;
+void dfs(map<int,list<int>> adj, vector<int> &z, int K, int v)
+{
+    visited[v] = true;
+    for(auto it = adj[v].begin(); it != adj[v].end(); ++it)
+    {
+        if(!visited[*it])
+        {
+            if(K)
+            {
+                
+                if(z[*it-1]==1)
+                {
+                    z[v-1] = 1;
+                    z[*it-1] = 0;
+                    K++;
+                }
+                else
+                {
+                    z[v-1] = 0;
+                    z[*it-1] = 1;
+                }
+            }
+            if(K==0)
+            {
+                z[v-1] = z[*it-1];
+                return;
+            }
+            dfs(adj,z, K, *it);
+        }
+    }
+}
 void solve(){
-    int n;
-    cin >> n;
-    vector<int> A(n);
-    for(auto &x:A) cin >> x;
-    vector<int> B(n);
-    for(auto &x:B) cin >> x;
-    sort(A.begin(), A.end());
-    sort(B.begin(), B.end());
-    vector<int> x;
-    vector<int> y;
-    int res=INT_MAX;
-    for(int i=n/2;i<n;i++)
-    {
-        x.push_back(A[i]);
-        y.push_back(B[i]);
+    int N,K;
+    cin >> N >> K;
+    vector<int> x(N-1);
+    map<int, list<int> > adj;
+    for(int i=2;i<=N;i++){
+        cin >> x[i-2];
+        adj[x[i]].push_back(i);
     }
-    n = x.size();
-    for(int i=0;i<x.size();i++)
-    {
-        res = min(res,x[i]+y[n-1-i]);
-    }
-    cout << res << endl;
+    vector<int> arr(N,0);
+    int v = 0;
+    dfs(adj, arr, K, v);
+    for(int i=0;i<N;i++) cout << arr[i];
+    cout << endl;
 }
 int main()
 {

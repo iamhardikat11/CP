@@ -52,29 +52,41 @@ double eps = 1e-12;
 #define sz(x) ((ll)(x).size())
  
 
-void solve(){
+int solve(){
     int n;
     cin >> n;
-    vector<int> A(n);
-    for(auto &x:A) cin >> x;
-    vector<int> B(n);
-    for(auto &x:B) cin >> x;
-    sort(A.begin(), A.end());
-    sort(B.begin(), B.end());
-    vector<int> x;
-    vector<int> y;
-    int res=INT_MAX;
-    for(int i=n/2;i<n;i++)
-    {
-        x.push_back(A[i]);
-        y.push_back(B[i]);
+    vector<int> v(n);
+    set<int> x;
+    map<int,int> t;
+    multiset<int> y;
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+        t[v[i]]++;
+        x.insert(v[i]);
+        y.insert(v[i]);
     }
-    n = x.size();
-    for(int i=0;i<x.size();i++)
+    int cnt = 1;
+    vector<int> z(n,0);
+    int curr = 1;
+    // while(x.size()!=0)
+    // {
+        
+    // }
+    while(y.size()>0)
     {
-        res = min(res,x[i]+y[n-1-i]);
+        auto it = y.lower_bound(curr);
+        if(y.lower_bound(curr)!=y.end())
+        {
+            curr++;
+            y.erase(it);
+        }
+        else
+        {
+            cnt++;
+            curr=1;
+        }
     }
-    cout << res << endl;
+    return cnt;
 }
 int main()
 {
@@ -82,7 +94,7 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
-    solve();
+    cout << solve() << endl;
  }
  return 0;
 }
