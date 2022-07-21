@@ -56,8 +56,34 @@ void solve(){
     int n;
     cin >> n;
     vector<int> v(n);
-    for(int i=0; i<n; i++) cin>>v[i];
-    
+    map<int,vector<int>> m;
+    map<int,int> p;
+    int x = INT_MAX;
+    for(int i=0; i<n; i++) {
+        cin>>v[i];
+        m[v[i]].push_back(i);
+        p[i+1] = INT_MAX;
+    }
+    if(m[v[0]].size()!=n)
+    {
+        p[1] = -1;
+    }
+    for(auto x : m)
+    {
+        if(x.second.size()==1) continue; 
+        int mx = 0;  
+        for(int i=0;i<x.second.size()-1; i++)
+            mx = max(mx, x.second[i+1]-x.second[i]);
+        for(int i=mx-1;i<n;i++)
+            if(p[i+1]>x.first) p[i+1] = x.first;
+    }
+    for(int i=n/2;i)
+    for(auto x : p)
+    {
+        if(x.second==INT_MAX) cout << -1 << " ";
+        else cout << x.second << " ";
+    }
+    cout << endl;
 }
 int main()
 {
