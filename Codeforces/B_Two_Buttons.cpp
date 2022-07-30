@@ -50,13 +50,24 @@ double eps = 1e-12;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
-bool isPowerOfTwo(int n) {
-        return ((n)&(n-1))==0;
+ 
+int ans(int a,int b)
+{
+    if(a==b) return 0;
+    return 1+min(ans(2*a,b),ans(a-1,b));
+}
+void solve(){
+    ll a,b;
+    cin >> a >> b;
+    cout << ans(a,b) << endl;
 }
 int main()
 {
-    int n;
-    cin >> n;
- cout << isPowerOfTwo(n) << endl;
+ fast_cin();
+//  ll t;
+//  cin >> t;
+ {
+    solve();
+ }
  return 0;
 }
