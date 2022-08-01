@@ -53,7 +53,7 @@ double eps = 1e-12;
     cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
-bool acyclic(vector<vector<int>> &g, vector<bool> &todo, vector<bool> &done, int node, vector<int> &order)
+bool acyclic(vector<vector<ll>> &g, vector<bool> &todo, vector<bool> &done, ll node, vector<ll> &order)
 {
     if (todo[node])
     {
@@ -64,7 +64,7 @@ bool acyclic(vector<vector<int>> &g, vector<bool> &todo, vector<bool> &done, int
         return true;
     }
     todo[node] = done[node] = true;
-    for (int neigh : g[node])
+    for (ll neigh : g[node])
     {
         if (!acyclic(g, todo, done, neigh, order))
         {
@@ -75,9 +75,9 @@ bool acyclic(vector<vector<int>> &g, vector<bool> &todo, vector<bool> &done, int
     todo[node] = false;
     return true;
 }
-vector<int> findOrder(int n, vector<vector<int>> g)
+vector<ll> findOrder(ll n, vector<vector<ll>> g)
 {
-    vector<int> order;
+    vector<ll> order;
     vector<bool> todo(n, false), done(n, false);
     for (int i = 0; i < n; i++)
     {
@@ -97,11 +97,11 @@ void solve()
     v64 v(n);
     for(auto &x: v) cin >> x;
     map<ll, ll> p;
-    vector<vector<int>> s(n);
+    vector<vector<ll>> s(n);
 
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        for (int j = i+1; j < n; j++)
+        for (ll j = i+1; j < n; j++)
         {
             if (v[j]==2*v[i] || 3*v[j] == v[i])
                 s[i].push_back(j);
@@ -116,8 +116,8 @@ void solve()
     //         cout << s[i][j] << " ";
     //     cout << endl;
     // }
-    vector<int> order = findOrder(n,s);
-    for(int i=0;i<order.size();i++)
+    vector<ll> order = findOrder(n,s);
+    for(ll i=0;i<order.size();i++)
     {
         cout << v[order[i]] << " ";
     }
@@ -126,7 +126,6 @@ void solve()
 int main()
 {
     fast_cin();
-    
     {
         solve();
     }
