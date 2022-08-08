@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-void solve()
+void solve(int N, map<int,set<int>> r)
+{
+    for(int i=2;i<=N;i++)
+    {
+        
+    }
+}
 int main()
 {
     int N,M;
