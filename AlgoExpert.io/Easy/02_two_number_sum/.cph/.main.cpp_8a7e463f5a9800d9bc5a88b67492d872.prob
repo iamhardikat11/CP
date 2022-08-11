@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/Users/hardiksoni/Documents/CP/AlgoExpert.io/Easy/02_two_number_sum/main.cpp","tests":[{"id":1660219315438,"input":"8\n3 5 -4 8 11 1 -1 6\n10","output":"[-1, 11]"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hardiksoni/Documents/CP/AlgoExpert.io/Easy/02_two_number_sum/main.cpp","group":"local","local":true}
