@@ -53,10 +53,45 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    string p;
+    cin >> p;
+    if(p.size()==1 && p[0]==0)
+        cout << 0 << " " << 0 << endl;
+    else
+    {
+        int mx = -1;
+        int idx1 = -1;
+        int mn = 10;
+        int idx2 = -1;
+        for(int i=1;i<p.size();i++)
+        {
+            if(p[i]-'0' > mx && p[i]!='0'){
+                mx = p[i]-'0';
+                idx1 = i;
+            }
+            if(p[i]-'0' <= mn && p[i]!='0'){
+                mn = p[i]-'0';
+                idx2 = i;
+            }
+        }
+        string s = p;
+        string l = p;
+        if(idx2!=-1 && p[idx2] < p[0])
+        {
+            char temp = s[idx2];
+            s[idx2] = s[0];
+            s[0] = temp;
+        }
+        if(idx1!=-1 && p[idx1] > p[0])
+        {
+            char temp = l[idx1];
+            l[idx1] = l[0];
+            l[0] = temp;
+        }
+        cout << s << " " << l;
+    }
 }
 
 int main()
@@ -65,7 +100,9 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
+    cout << endl;
  }
  return 0;
 }

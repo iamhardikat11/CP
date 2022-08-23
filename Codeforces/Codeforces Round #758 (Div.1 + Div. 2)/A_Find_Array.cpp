@@ -53,10 +53,13 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    int n;
+    cin >> n;
+    for(int i=2;i<=n+1;i++)
+        cout << i << " ";
+    cout << endl;
 }
 
 int main()

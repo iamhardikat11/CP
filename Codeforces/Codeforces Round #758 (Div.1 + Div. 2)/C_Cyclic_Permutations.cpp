@@ -34,7 +34,7 @@ typedef vector<vector<ll> > vv64;
 typedef vector<vector<p64> > vvp64;
 typedef vector<p64> vp64;
 typedef vector<p32> vp32;
-ll MOD = 998244353;
+ll MOD = 1e9+7;
 double eps = 1e-12;
 #define forn(i,e) for(ll i = 0; i < e; i++)
 #define forsn(i,s,e) for(ll i = s; i < e; i++)
@@ -53,19 +53,26 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
-void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
-}
 
+long long binpow(long long a, long long b) {
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = (res * a)%MOD;
+        a = (a * a)%MOD;
+        b >>= 1;
+    }
+    return res%MOD;
+}
 int main()
 {
  fast_cin();
- ll t;
- cin >> t;
- for(int it=1;it<=t;it++) {
-    solve();
+ ll n;
+ cin >> n;
+ ll prod = 1;
+ for(ll i = 1; i <= n; i++){
+    prod = (prod * i)%MOD;
  }
+ cout << prod - binpow(2,n-1) << endl;
  return 0;
 }

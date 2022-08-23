@@ -53,10 +53,47 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    int x;
+    cin >> x;
+    vector<int> v;
+    vector<string> p;
+    int sum = 9;
+    string t = "9";
+    for(int i=8;i>=1;i--)
+    {
+        v.push_back(sum);
+        p.push_back(t);
+        sum+=i;
+        t=to_string(i)+t;
+    }
+    if(x<=9)
+        cout << x << endl;
+    else if(x>45)
+    {
+        cout << -1 << endl;
+    }
+    else
+    {
+        bool f = false;
+        for(int i=0;i<v.size()-1;i++)
+        {
+            if(x>=v[i] && x<=v[i+1])
+            {
+                f = true;
+                if(x-v[i]!=0)
+                    cout << x-v[i] << p[i] << endl;
+                else
+                    cout << p[i] << endl;
+                break;
+            }
+        }
+        if(!f)
+        {
+            cout << 1 << p[p.size()-1] << endl;
+        }
+    }
 }
 
 int main()

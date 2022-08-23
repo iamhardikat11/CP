@@ -53,18 +53,26 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    ll n,x;
+    cin>>n>>x;
+    ll a[n];
+    forn(i,n) cin>>a[i];
+    sort(a,a+n);
+    ll sum = 0;
+    forn(i,n-1) sum+=a[i];
+    if(sum<=x)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
 }
 
 int main()
 {
  fast_cin();
  ll t;
- cin >> t;
- for(int it=1;it<=t;it++) {
+ {
     solve();
  }
  return 0;

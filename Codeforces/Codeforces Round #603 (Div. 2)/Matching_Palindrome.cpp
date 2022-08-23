@@ -53,9 +53,12 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
+    ll n;
+    cin >> n;
+    string p;
+    cin >> p;
     
 }
 

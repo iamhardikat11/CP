@@ -24,12 +24,12 @@ using namespace std;
  
 typedef long long ll;
 typedef long double ld;
-typedef pair<int,int> p32;
+typedef pair<ll,ll> p32;
 typedef pair<ll,ll> p64;
 typedef pair<double,double> pdd;
 typedef vector<ll> v64;
-typedef vector<int> v32;
-typedef vector<vector<int> > vv32;
+typedef vector<ll> v32;
+typedef vector<vector<ll> > vv32;
 typedef vector<vector<ll> > vv64;
 typedef vector<vector<p64> > vvp64;
 typedef vector<p64> vp64;
@@ -53,10 +53,55 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    ll n,k,s,b;
+    cin >> n >> k >> b >> s;
+    ll x = s-(b+1)*k+1;
+    if(s < k*b || s > n*(k-1) + k*b) cout << -1 << endl;
+    else
+    {
+        
+        if(x<0)
+        {
+            vector<ll> ans;
+                cout << b*k << " ";
+                ll w = s-b*k;
+                ans.push_back(b*k);
+                for(int i=1;i<n;i++)
+                {
+                    if(w-k>=-1) {
+                        ans.push_back(k-1);
+                        cout << k-1 << " ";
+                        w-=(k-1);
+                    }
+                    else
+                    {
+                        cout << w << " ";
+                        w = 0;
+                    }
+                }
+        }
+        else
+        {
+            vector<ll> ans;
+            cout << (b+1)*k-1 << " ";
+            ans.push_back(b+1*k-1);
+            for(int i=1;i<n;i++)
+            {
+                if(x-k>=-1) {
+                    cout << k-1 << " ";
+                    x-=(k-1);
+                }
+                else
+                {
+                    cout << x << " ";
+                    x = 0;
+                }
+            }
+        }
+        cout << "\n";
+    }
 }
 
 int main()
@@ -64,7 +109,7 @@ int main()
  fast_cin();
  ll t;
  cin >> t;
- for(int it=1;it<=t;it++) {
+ for(ll it=1;it<=t;it++) {
     solve();
  }
  return 0;

@@ -53,10 +53,64 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    ll n;
+    cin>>n;
+    string I,O;
+    cin >> I >> O;
+    vector<string> v(n);
+    string p = string('N',n);
+    forn(i,n) 
+        v[i] = p;
+    forn(i,n)
+    {
+        forn(j,n)
+        {
+            // O[i]=='Y' and I[j]=='Y' then yes;
+            if(i==j)
+                v[i][j] = 'Y';
+            else if(O[i]=='Y' && I[j]=='Y' && abs(i-j)==1)
+                v[i][j] = 'Y';
+            else 
+                v[i][j] = 'N';
+        }
+    }
+    // forn(i,n)
+    // {
+    //     cout<<v[i];
+    // }
+    forn(i,n)
+    {
+        forn(j,n)
+        {
+            if(v[i][j]=='Y')
+                cout << 'Y';
+            else
+            {
+                if(O[i]=='Y' && I[j]=='Y')
+                {
+                    else if(i>=1 && v[i-1][j]=='Y')
+                    {
+                            cout << 'Y';
+                            continue;
+                    }
+                    else if(i<=n-2 && v[i+1][j]=='Y')
+                    {
+                            cout << 'Y';
+                            continue;
+                    }
+                    else if(j<=n-2 && v[i][j+1]=='Y')
+                    {
+                            cout << 'Y';
+                            continue;
+                    }
+                }
+                cout << 'N';
+            }
+        }
+        cout << endl;
+    }
 }
 
 int main()
@@ -65,6 +119,7 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": " << endl;
     solve();
  }
  return 0;

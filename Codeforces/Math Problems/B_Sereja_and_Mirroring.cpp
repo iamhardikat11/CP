@@ -50,22 +50,25 @@ double eps = 1e-12;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
-#define max(a,b) a > b ? a : b
-#define min(a,b) a > b? b : a
+ 
 
 void solve(){
-    ll n,k;
-    cin >> n >> k;
+    int n,m;
+    cin >> n >> m;
+    set<int> factors;
+    for(int i=1;i*i<n;i++)
+    {
+        if(n%i==0)
+        {
+            factors.insert(i);
+            factors.insert(n/i);
+        }
+    }
     
 }
-
 int main()
 {
  fast_cin();
- ll t;
- cin >> t;
- for(int it=1;it<=t;it++) {
-    solve();
- }
+ solve();
  return 0;
 }

@@ -53,18 +53,35 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+void dfs(map<ll,set<ll>> m, vector<bool> & visit, ll c)
+{
+    cout << c << " ";
+    visit[c-1] = true;
+    for(auto it: m[c])
+    {
+        if(!visit[it-1])
+            dfs(m,visit,it);
+    }
+}
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    ll n;
+    cin >> n;
+    vector<ll> v(n);
+    map<ll,set<ll>> m;
+    for(ll i=0; i<n;i++)
+    {
+        cin >> v[i];
+        m[v[i]].insert(i+1);
+    }
+    vector<bool> visit(n,false);
+    dfs(m,visit,1);
+    return;
 }
 
 int main()
 {
  fast_cin();
- ll t;
- cin >> t;
- for(int it=1;it<=t;it++) {
+        {
     solve();
  }
  return 0;

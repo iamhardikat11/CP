@@ -53,10 +53,30 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    int n,m;
+    cin >> n >> m;
+    vector<vector<int>> v(n, vector<int> (m));
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            cin >> v[i][j];
+        }
+    }
+    if(n&1) cout << n << "\n";
+    else
+    {
+        int k = n/2;
+        for(int x=1;x*x<=k;x++)
+        {
+            for(int i=0;i<n;i+=x)
+            {
+
+            }
+        }
+    }
 }
 
 int main()

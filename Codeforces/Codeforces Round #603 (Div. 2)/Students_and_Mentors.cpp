@@ -53,10 +53,33 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
-    
+    ll n;
+    cin>>n;
+    vector<ll> a(n),b(n);
+    multimap<ll,ll> m;
+    for(ll i=0;i<n;i++){
+        cin>>a[i];
+        m[a[i]] = i;
+    }
+    b = a;
+    sort(b.begin(), b.end());
+    // for(ll i=0;i<n;i++){
+    //     b[i] = 2*a[i];
+    // }
+    // vector<ll> ans(n,0);
+    ll j = n-1;
+    vector<ll> ans(n,-1);
+    for(ll i=n-1;i>=0;i--)
+    {
+        while(j>=0 && b[j]>2*a[i] && ){
+            j--;
+        }
+        if(j>=0)
+            ans[i] = b[j];
+    }
+    for(ll i=0;i<n;i++) cout << ans[i] << " ";
 }
 
 int main()
@@ -65,7 +88,9 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
+    cout << "\n";
  }
  return 0;
 }

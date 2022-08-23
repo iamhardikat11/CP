@@ -53,9 +53,15 @@ double eps = 1e-12;
 #define max(a,b) a > b ? a : b
 #define min(a,b) a > b? b : a
 
+
 void solve(){
-    ll n,k;
-    cin >> n >> k;
+    ll gp,gc,gk;
+    cin >> gp >> gc >> gk;
+    ll n;
+    cin >> n;
+    vector<vector<ll>> v(n, vector<ll> (3));
+    for(ll i = 0; i < n; i++) 
+        cin >> v[i][0] >> v[i][1] >> v[i][2];
     
 }
 
@@ -65,7 +71,9 @@ int main()
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
+    cout << endl;
  }
  return 0;
 }
