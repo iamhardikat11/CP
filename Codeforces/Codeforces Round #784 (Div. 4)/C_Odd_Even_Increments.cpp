@@ -17,18 +17,30 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 void solve() {
-    int n;
+    ll n;
     cin >> n;
-    vector<int> a(n);
-    int quan1 = 0;
-    int quan2 = 0;
-    for(int i=0;i<n;i++) {
-        cin >> a[i];
-        if(i%2==0) quan1 = quan1^a[i];
-        else quan2 = quan2^a[i];
+    vector<ll> a(n);
+    for(auto &x: a) cin >> x;
+    int f1 = a[0] & 1;
+    int f2 = a[1] & 1;
+    for(ll i=0;i<n;i++)
+    {
+        if(i%2==0 && (a[i]&1)==f1)
+        {
+            continue;
+        }
+        else if(i%2==1 && (a[i]&1)==f2)
+        {
+            continue;
+        }
+        else
+        {
+            cout << "NO" << endl;
+            return;
+        }
     }
-    
-    
+    cout << "YES" << endl;
+    return;
 }
 
 int main() {
@@ -43,4 +55,5 @@ int main() {
     {
      solve();
     }
+    return 0;
 }
