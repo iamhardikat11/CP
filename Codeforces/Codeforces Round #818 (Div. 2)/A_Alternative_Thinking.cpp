@@ -57,65 +57,6 @@ double eps = 1e-12;
 
 
 void solve(){
-    ll n;
-    cin >> n;
-    vector<ll> a(n),b(n);
-    forn(i,n) cin >> a[i];
-    forn(i,n) cin >> b[i];
-    bool flag = true;
-    ll cnt = 0;
-    map<ll,ll> m;
-    vector<ll> idx; 
-    forn(i,n)
-    {
-        if(a[i]>b[i]) {
-            
-            cout << "NO" << endl;
-            return;
-        }
-        if(a[i]==b[i])
-        {
-                cnt++;
-                m[i] = 1;
-        }
-        else
-        {
-            idx.push_back(i);
-        }
-    }
-    if(cnt==n)
-    {
-        cout << "YES" << endl;
-        return;
-    }
-    // forn(i,n-1)
-    // {
-    //     if(m.find(i)==m.end() && a[i] < b[i] && a[i] > a[i+1]+1)
-    //     {
-    //         cout << 1 << endl;
-    //         cout << "NO" << endl;
-    //         return;
-    //     }
-    // }
-    // if(m.find(n-1)==m.end() && a[n-1] < b[n-1] && a[n-1] > b[0]+1)
-    // {
-    //     cout << "NO" << endl;
-    //     return;
-    // }
-    forn(i,n-1)
-    {
-        if(m.find(i)==m.end() && a[i] < b[i] && b[i] > b[i+1] + 1)
-        {
-            cout << "NO" << endl;
-            return;
-        }
-    }
-    if(m.find(n-1)==m.end() && a[n-1] < b[n-1] && b[n-1] > b[0]+1)
-    {
-        cout << "NO" << endl;
-        return;
-    }
-    cout << "YES" << endl;
 }
 
 int main()

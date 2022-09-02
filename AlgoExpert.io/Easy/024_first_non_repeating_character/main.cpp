@@ -3,11 +3,21 @@ using namespace std;
 #define ll long long
 int main()
 {
+
     string a;
     cin >> a;
-    map<char,set<ll>> s;
+    map<ll,set<ll>> s;
     for(ll i=0;i<a.size();i++)
-        s[a[i]].insert(i);
+        s[a[i]-'a'].insert(i);
+    // for(auto it: s)
+    // {
+    //     cout << it.first << ": " << endl;
+    //     for(auto it2: it.second)
+    //     {
+    //         cout << it2 << " ";
+    //     }
+    //     cout << endl;
+    // }
     char ch = ' ';
     int min_pos = INT_MAX;
     for(auto it: s)
