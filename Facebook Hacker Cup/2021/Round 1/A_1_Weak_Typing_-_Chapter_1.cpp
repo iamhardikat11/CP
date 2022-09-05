@@ -57,42 +57,75 @@ double eps = 1e-12;
 
 
 void solve(){
-    string a,p;
-    cin >> a >> p;
-    if(p.size() < a.size() || p.size() > 2*a.size()) cout << -1 << endl;
-    else
+    int n;
+    cin >> n;
+    string p;
+    cin >> p;
+    vector<int> count(3,0);
+    // count[0] = 'F'
+    // count[1] = 'O'
+    // count[2] = 'X'
+    int cnt = 0;
+    for(int i = 0; i < n; i++)
     {
-        if(p.size()==a.size())
+        if(p[i]=='F')
         {
-            string diff;
-            for(int i=p.size();i>=0;i--)
+            count[0]++;
+        }
+        else if(p[i]=='O')
+        {
+            if(count[1]==0)
             {
-                if(a[i]>p[i])
+                if(count[2]==0)
                 {
-                    cout << -1 << endl;
-                    return;
+                    count[1]++;
                 }
                 else
                 {
-                    diff.push_back(p[i]-a[i]+'0');
+                    count[2] = 0;
+                    count[0] = 0;
+                    count[1]++;
+                    cnt++;
                 }
             }
-            cout << stoll(diff) << endl;
+            else
+            {
+                count[1]++;
+            }
         }
         else
         {
-            string diff = "";
-            
+            if(count[2]==0)
+            {
+                if(count[1]==0)
+                {
+                    count[2]++;
+                }
+                else
+                {
+                    count[0] = 0;
+                    count[1] = 0;
+                    count[2]++;
+                    cnt++;
+                }
+            }
+            else
+            {
+                count[2]++;
+            }
         }
     }
+    cout << cnt << endl;
 }
 
 int main()
 {
+ 
  fast_cin();
  ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
  }
  return 0;

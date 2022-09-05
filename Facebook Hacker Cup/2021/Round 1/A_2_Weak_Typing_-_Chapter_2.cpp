@@ -34,7 +34,7 @@ typedef vector<vector<ll> > vv64;
 typedef vector<vector<p64> > vvp64;
 typedef vector<p64> vp64;
 typedef vector<p32> vp32;
-ll MOD = 998244353;
+ll MOD = 1000000007;
 double eps = 1e-12;
 #define forn(i,e) for(ll i = 0; i < e; i++)
 #define forsn(i,s,e) for(ll i = s; i < e; i++)
@@ -57,34 +57,10 @@ double eps = 1e-12;
 
 
 void solve(){
-    string a,p;
-    cin >> a >> p;
-    if(p.size() < a.size() || p.size() > 2*a.size()) cout << -1 << endl;
-    else
-    {
-        if(p.size()==a.size())
-        {
-            string diff;
-            for(int i=p.size();i>=0;i--)
-            {
-                if(a[i]>p[i])
-                {
-                    cout << -1 << endl;
-                    return;
-                }
-                else
-                {
-                    diff.push_back(p[i]-a[i]+'0');
-                }
-            }
-            cout << stoll(diff) << endl;
-        }
-        else
-        {
-            string diff = "";
-            
-        }
-    }
+    int n;
+    cin >> n;
+    string p;
+    cin >> p;
 }
 
 int main()
@@ -92,8 +68,7 @@ int main()
  fast_cin();
  ll t;
  cin >> t;
- for(int it=1;it<=t;it++) {
+ for(int it=1;it<=t;it++)
     solve();
- }
  return 0;
 }
