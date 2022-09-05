@@ -34,7 +34,7 @@ typedef vector<vector<ll> > vv64;
 typedef vector<vector<p64> > vvp64;
 typedef vector<p64> vp64;
 typedef vector<p32> vp32;
-ll MOD = 1000000007;
+ll MOD = 998244353;
 double eps = 1e-12;
 #define forn(i,e) for(ll i = 0; i < e; i++)
 #define forsn(i,s,e) for(ll i = s; i < e; i++)
@@ -57,11 +57,35 @@ double eps = 1e-12;
 
 
 void solve(){
-    ll n;
-    cin >> n;
-    string p;
-    cin >> p;
-    
+    int N, M, A, B;
+    cin >> N >> M >> A >> B;
+    if(A < N+M-1 || B < N+M-1)
+    {
+        cout << "Impossible" << endl;
+    }
+    else
+    {
+        vector<vector<int>> v(N, vector<int> (M,1000));
+        int k = A%(N+M-1);
+        for(int i=0;i<M;i++)
+            v[0][i] = 1;
+        for(int i=0;i<N;i++)
+        {
+            v[i][M-1] = 1;
+            v[i][0] = 1;
+        }
+        v[N-1][M-1] = A-(N+M-2);
+        v[N-1][0] = B-(N+M-2);
+        cout << "Possible" << endl;
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<M;j++)
+            {
+                cout << v[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
 }
 
 int main()
@@ -69,7 +93,9 @@ int main()
  fast_cin();
  ll t;
  cin >> t;
- for(int it=1;it<=t;it++)
+ for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
+ }
  return 0;
 }
