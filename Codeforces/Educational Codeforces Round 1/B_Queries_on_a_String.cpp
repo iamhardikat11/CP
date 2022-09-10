@@ -61,12 +61,25 @@ void solve(){
     cin >> p;
     int m;
     cin >> m;
+    string s = p;
     while(m--)
     {
         ll l,r,k;
         cin >> l >> r >> k;
-        
+        l--;
+        r--;
+        k = k%(r-l+1);
+        vector<int> v(r-l+1,0);
+        for(int i=0;i<r-l+1;i++)
+            v[i] = (i+k)%(r-l+1);
+        for(int i=0;i<r-l+1;i++)
+        {
+            s[l+i] = p[v[i]];
+        }
+        s = p;
+        cout << s << endl;
     }
+    
 }
 int main()
 {

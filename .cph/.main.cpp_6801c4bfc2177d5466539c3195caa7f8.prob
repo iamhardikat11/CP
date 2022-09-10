@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/Users/hardiksoni/Documents/CP/main.cpp","tests":[{"id":1662555895065,"input":"1 2 3","output":"3"},{"id":1662555903899,"input":"2 5 10","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hardiksoni/Documents/CP/main.cpp","group":"local","local":true}

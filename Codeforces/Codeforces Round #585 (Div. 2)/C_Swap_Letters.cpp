@@ -38,14 +38,21 @@ int main() {
     if(arr[0]&1 || arr[1]&1) cout << -1 << endl;
     else
     {
-        vector<pair<int,int>> x;
+        int cnt = 0;
         for(int i=0;i<n;i++)
         {
-            if(s[i]==t[i]) continue;
-            else
+            if(s[i]!=t[i])
             {
-                
+                cnt++;
             }
+        }
+        if(n%2==0)
+        {
+            cout << 
+        }
+        else
+        {
+
         }
     }
     return 0;
