@@ -57,39 +57,45 @@ double eps = 1e-12;
 
 
 void solve(){
-    string p;
-    cin >> p;
-    ll cnt = 0;
-    ll n = p.size();
-    forn(i,n) cnt+=p[i]=='?';
-    if(n%2)
-        cout << "NO" << endl;
-    else
+    ll n;
+    cin >> n;
+    vector<ll> v(n);
+    forn(i, n) cin >> v[i];
+    map<int,int> mp;
+    forn(i,n) mp[v[i]]++;
+    ll k = mp.size();
+    for(auto it: mp)
     {
-        stack<int> temp;
-        for(int i=0;i<n;i++)
+        if(it.second > 1 && mp[it.first+1] == 0)
         {
-            if(p[i]=='(')
+            k++;
+            mp[it.first+1]++;
+            mp[it.first]--;
+        }
+        else if(it.second > 1 && mp[it.first+1] == 1)
+        {
+            int i = it.first+1;
+            while(mp[i] == 1)
             {
-                temp.push(i);
-            }
-            else if(p[i]==')')
-            {
-                if(p[temp.top()]==')')
-                    temp.pop();
-                else
-                    temp.push(i);
+                i++;
+                k++;
+                mp[i+1]++;
+                mp[i]--;
             }
         }
-        if(temp.size()==0)
+        else if(it.second > 1 && mp[it.first+1] == 2 && mp[it.first+2] == 0)
         {
-            (cnt%2==0)?cout << "YES" << endl: cout << "NO" << endl;   
-        }
-        else
-        {
-            
+            int i = it.first+1;
+            while(mp[i] == 2 && mp[i+1] == 0)
+            {
+                i++;
+                k++;
+                mp[i+1]++;
+                mp[i]--;
+            }
         }
     }
+    cout << k << endl;
 }
 
 int main()

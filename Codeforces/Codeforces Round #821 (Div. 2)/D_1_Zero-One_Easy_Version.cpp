@@ -57,38 +57,29 @@ double eps = 1e-12;
 
 
 void solve(){
-    string p;
-    cin >> p;
+    ll n,x,y;
+    cin >> n >> x >> y;
+    string s,t;
+    cin >> s >> t;
     ll cnt = 0;
-    ll n = p.size();
-    forn(i,n) cnt+=p[i]=='?';
-    if(n%2)
-        cout << "NO" << endl;
+    vector<int> pos;
+    forn(i,n)
+        if(s[i]!=t[i]) {
+            cnt++;
+            pos.push_back(i);
+        }
+    if(cnt==0)
+    {
+        cout << 0 << endl;
+        return;
+    }
+    if(cnt%2==0)
+    {
+
+    }
     else
     {
-        stack<int> temp;
-        for(int i=0;i<n;i++)
-        {
-            if(p[i]=='(')
-            {
-                temp.push(i);
-            }
-            else if(p[i]==')')
-            {
-                if(p[temp.top()]==')')
-                    temp.pop();
-                else
-                    temp.push(i);
-            }
-        }
-        if(temp.size()==0)
-        {
-            (cnt%2==0)?cout << "YES" << endl: cout << "NO" << endl;   
-        }
-        else
-        {
-            
-        }
+        cout << -1 << endl;
     }
 }
 
