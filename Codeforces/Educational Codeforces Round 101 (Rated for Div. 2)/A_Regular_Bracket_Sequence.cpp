@@ -1,4 +1,25 @@
-#include <bits/stdc++.h>  
+#pragma GCC optimize("Ofast")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
+#pragma GCC optimize("unroll-loops")
+#include <bits/stdc++.h> 
+#include <complex>
+#include <queue>
+#include <set>
+#include <unordered_set>
+#include <list>
+#include <chrono>
+#include <random>
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <string>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <stack>
+#include <iomanip>
+#include <fstream>
+ 
 using namespace std;
  
 typedef long long ll;
@@ -36,62 +57,31 @@ double eps = 1e-12;
 
 
 void solve(){
-    string s;
-    int i = 1;
-    while(true)
+    string p;
+    cin >> p;
+    ll cnt = 0;
+    ll n = p.size();
+    forn(i,n) cnt+=p[i]=='?';
+    if(n%2)
     {
-        cin >> s;
-        bool flag = true;
-        for(int i=0;i<s.size();i++)
+        cout << "NO" << endl;
+    }
+    else
+    {
+        stack<int> temp;
+        for(int i=0;i<n;i++)
         {
-            if(s[i] != '-')
-            {
-                flag = false;
-                break;
-            }
+            
         }
-        if(flag) break;
-        cout << i << ". ";
-        stack<int> st;
-        for(int i=0;i<s.size();i++)
-        {
-            if(s[i]=='{')
-                st.push(i);
-            else if(s[i]=='}')
-            {
-                if(!st.empty() && s[st.top()]=='{')
-                    st.pop();
-                else
-                    st.push(i);
-            }
-            else
-                continue;
-        }
-        string p = "";
-        while(!st.empty())
-        {
-            p.push_back(s[st.top()]);
-            st.pop();
-        }
-        int cnt1 = 0, cnt2 = 0;
-        for(int i=0;i<p.size();i++)
-        {
-            if(p[i]=='}')
-                cnt1++;
-            else if(p[i]=='{')
-                cnt2++;
-        }
-        cout << (cnt1+1)/2+(cnt2+1)/2 << endl;
-        // cout << p.size() << endl;
-        i++;
+        (cnt%2==0)?cout << "YES" << endl: cout << "NO" << endl;  
     }
 }
 
 int main()
 {
  fast_cin();
- ll t = 1;
- //cin >> t;
+ ll t;
+ cin >> t;
  for(int it=1;it<=t;it++) {
     solve();
  }
