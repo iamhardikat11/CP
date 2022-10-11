@@ -55,30 +55,61 @@ double eps = 1e-12;
 #define ys cout << "YES" << endl;
 #define no cout << "NO" << endl;
 
-
 void solve(){
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    forn(i,n) cin >> v[i];
-    vector<int> result;
-    stack<int> temp;
-    temp.push(v[0]);
-    int j = 1;
-    forn(i,n)
+    string s;
+    cin >> s;
+    map<ll,map<ll,ll>> mp;
+    ll n = s.size();
+    mp[0][s[0]-'a']++;
+    forsn(i,1,n)
     {
-        while(v[j]>=temp.top())
-          temp.
+        mp[i] = mp[i-1];
+        mp[i][s[i]-'a']++;
     }
+    ll q;
+    cin >> q;
+    ll cnt = 0;
+    while(q--)
+    {
+        ll x,y;
+        cin >> x >> y;
+        x--,y--;
+        vector<ll> r(26,INT_MAX);
+        if(y<x && (y-x)%2)
+            continue;
+        forn(i,26)
+        {
+            if(mp[y][i]!=0 && mp[y][i]!=mp[x-1][i])
+            {
+                r[i] = mp[x+(y-x)/2][i]-((x-1>=0)?mp[x-1][i]:0);
+                r[i] -= mp[y][i]-mp[x+(y-x)/2][i];
+            }
+        }
+        ll cnt1 = 0;
+        ll cnt0 = 0;
+        ll cntn = 0;
+        ll f = -1;
+        forn(i,26)
+        {
+            if(r[i]==1)
+                cnt1++, f = i;
+            if(r[i]==0)
+                cnt0++;
+            if(r[i]==INT_MAX)
+                cntn++;
+        }  
+        cout << cnt0 << endl;
+    }
+    cout << cnt << endl;
 }
 
 int main()
 {
  fast_cin();
  ll t;
- // cin >> t;
- t = 1;
+ cin >> t;
  for(int it=1;it<=t;it++) {
+    cout << "Case #" << it << ": ";
     solve();
  }
  return 0;

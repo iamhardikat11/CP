@@ -57,27 +57,16 @@ double eps = 1e-12;
 
 
 void solve(){
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    forn(i,n) cin >> v[i];
-    vector<int> result;
-    stack<int> temp;
-    temp.push(v[0]);
-    int j = 1;
-    forn(i,n)
-    {
-        while(v[j]>=temp.top())
-          temp.
-    }
+    ll N,K;
+    cin >> N >> K;
+    
 }
 
 int main()
 {
  fast_cin();
  ll t;
- // cin >> t;
- t = 1;
+ cin >> t;
  for(int it=1;it<=t;it++) {
     solve();
  }
