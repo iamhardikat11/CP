@@ -61,11 +61,39 @@ void solve(){
     cin >> n;
     vector<ll> a(n), b(n), c(n);
     vector<ll> res(n,0);
-    res[0] = a[0];
     forn(i,n)
     {
-        
+        cin >> a[i];
     }
+    forn(i,n)
+    {
+        cin >> b[i];
+    }
+    forn(i,n)
+    {
+        cin >> c[i];
+    }
+    res[n-1] = c[n-1];
+    for(ll i=n-2;i>=0;i--)
+    {
+        if(a[i]==res[i+1])
+        {
+            res[i] = (b[i]!=res[i+1]) ? b[i] : c[i];
+        }
+        else
+        {
+            res[i] = a[i];
+        }
+    }
+    if(res[0]==res[n-1])
+    {
+        if(b[n-1]!=res[0])
+            res[n-1] = b[n-1];
+        else
+            res[n-1] = c[n-1];
+    }
+    forn(i,n) cout << res[i] << " ";
+    cout << endl;
 }
 
 int main()

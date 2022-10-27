@@ -55,37 +55,61 @@ double eps = 1e-12;
 
 
 void solve(){
-    // 4
-    // 2 3
-    // 1 4
-    // 9
-    // 1 2 4 7 9
-    // 3 5 6 8 
-    // 8
-    // 1 4 5 8
-    // 2 3 6 7
     ll n;
     cin >> n;
-    if(n&1)
+    if(n*(n+1)%4==0)
     {
-        cout << "YES" << endl;
-        cout << (n+1)/2 << endl;
-        
-        cout << (n-1)/2 << endl;
+        ll target = (n*(n+1))/4;
+        set<ll> ans;
+        ll i = 0;
+        ll sum = 0;
+        while(i<=n/2)
+        {
+            ans.insert(n-i);
+            sum += n-i;
+            if(sum==target)
+            {
+                break;
+            }
+            ans.insert(i+1);
+            sum += i+1;
+            if(sum==target)
+            {
+                break;
+            }
+            i++;
+        }
+        if(sum==target)
+        {
+            cout << "YES" << endl;
+            set<ll> ans2;
+            ll i = 1;
+            cout << ans.size() << endl;
+            map<ll,ll> mp;
+            for(auto it: ans)
+            {
+                cout << it << " ";
+                mp[it]=1;
+                while(i<it && i<=n)
+                {
+                    if(!mp[i])
+                        ans2.insert(i);
+                    i++;
+                }
+            }
+            cout << endl << ans2.size() << endl;
+            for(auto it: ans2)
+            {
+                cout << it << " ";
+            }
+            cout << endl;
+        }
+        else
+            cout << "NO" << endl;
     }
     else
     {
-        if(n%4==0)
-        {
-            cout << "YES" << endl;
-            cout << n/2 << endl;
-            for()
-            cout << n/2 << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << "NO" << endl;
     }
 }
 
@@ -93,7 +117,8 @@ int main()
 {
  fast_cin();
  ll t;
- cin >> t;
+ //cin >> t;
+ t = 1;
  {
     solve();
  }
