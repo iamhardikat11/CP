@@ -55,7 +55,14 @@ double eps = 1e-12;
 void solve(){
     int n;
     cin >> n;
-    cout << (int)(pow(2, floor(log2(n)))-1) << endl;
+    int last = 0;
+    for(int i=0;i<30;i++)
+    {
+        if(((n>>i) & 1)==1){
+            last = i;
+        }
+    }
+    cout << (1<<last)-1 << endl;
 }
 int main()
 {

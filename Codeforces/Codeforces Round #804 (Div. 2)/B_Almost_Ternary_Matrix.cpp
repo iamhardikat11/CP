@@ -55,8 +55,32 @@ double eps = 1e-12;
 void solve(){
      int n,m;
      cin >> n >> m;
-     vector<vector<int>> v(n, vector<int> (m));
-     for(int i=0;i<)
+     vector<vector<int>> v(n,vector<int> (m,0));
+     for(int i=0;i<n;i++){
+            if(i%2==0)
+            {
+               for(int j=0;j<m;j++)
+               {
+                  if(j%2==0) v[i][j] = 1;
+                  else v[i][j] = 0;
+               }
+            }
+            else if(i%2==1)
+            {
+               for(int j=0;j<m;j++){
+                  if(j%4==0 || j%4==3)
+                     v[i][j] = 0;
+                  else
+                     v[i][j] = 1;
+               }
+            }
+     }
+     forn(i,n)
+     {
+       forn(j,m)
+       cout << v[i][j] << " ";
+      cout << endl;
+     }
 }
 int main()
 {

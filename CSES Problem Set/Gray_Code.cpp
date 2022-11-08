@@ -56,27 +56,23 @@ double eps = 1e-12;
 #define ys cout << "YES" << endl;
 #define no cout << "NO" << endl;
 
-vector<int> v(20,0);
-void recur(int n,int i)
-{
-    if(n<0)
-       return;
-     
-    {
-        cout << 
-    }
-}
 void solve(){
     int n;
     cin >> n;
-    recur(n,n-1);
+    for (int i = 0; i < (1 << n); i++)
+    {
+        int val = (i ^ (i >> 1));
+        bitset<32> r(val);
+        string s = r.to_string();
+        cout << s.substr(32 - n) << endl;
+    }
 }
 
 int main()
 {
  fast_cin();
  ll t;
- cin >> t;
+ t = 1;
  for(int it=1;it<=t;it++) {
     solve();
  }
