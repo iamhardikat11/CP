@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 struct Edge {
    int source, dest, weight;
@@ -22,15 +19,12 @@ public:
             adjList[edge.source].push_back(edge);
     }
 };
- 
 void printPath(vector<int> const &prev, int i, int source)
 {
     if (i < 0) 
         return;
     printPath(prev, prev[i], source);
-    if (i != source) 
-        cout << ", ";
-    cout << i;
+    cout << i+1 << " ";
 }
  
 struct comp
@@ -67,15 +61,11 @@ void findShortestPaths(Graph const &graph, int source, int n)
         }
         done[u] = true;
     }
-    for (int i = 0; i < n; i++)
     {
-        if (i != source && dist[i] != INT_MAX)
-        {
-            cout << "Path (" << source << " —> " << i << "): Minimum cost = "
-                 << dist[i] << ", Route = [";
-            printPath(prev, i, source);
-            cout << "]" << endl;
-        }
+        if (n-1 != source && dist[n-1] != INT_MAX)
+            printPath(prev, n-1, source);
+        else
+            cout << -1 << endl;
     }
 }
  
@@ -83,22 +73,34 @@ int main()
 {
     int n,m;
     cin >> n >> m;
-    vector<Edge> edges =
+    vector<Edge> edges;
+    map<pair<int,int>, int> mp;
     while(m--)
     {
         int a,b,w;
         cin >> a >> b >> w;
+        a--;
+        b--;
+        if(mp.find({a,b})!=mp.end())
+        {
+            mp[{a,b}] = min(mp[{a,b}], w);
+            mp[{b,a}] = min(mp[{b,a}], w);
+        }
+        else
+        {
+            mp[{a,b}] = w;
+            mp[{b,a}] = w;
+        }
+    }
+    for(auto it: mp)
+    {
         Edge e;
-        e.source = a;
-        e.dest = b;
-        e.weight = w;
+        e.source = it.first.first;
+        e.dest = it.first.second;
+        e.weight = it.second;
         edges.push_back(e);
-        
     }
     Graph graph(edges, n);
-    for (int source = 0; source < n; source++) {
-        findShortestPaths(graph, source, n);
-    }
- 
+    findShortestPaths(graph, 0, n);
     return 0;
 }
