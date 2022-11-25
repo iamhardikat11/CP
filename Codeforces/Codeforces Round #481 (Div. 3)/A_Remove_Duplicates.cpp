@@ -50,33 +50,39 @@ double eps = 1e-12;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
- 
+#define max(a,b) a > b ? a : b
+#define min(a,b) a > b? b : a
+#define ipt(n,r) forn(i,n) cin >> r[i];
+#define ys cout << "YES" << endl;
+#define no cout << "NO" << endl;
+
 
 void solve(){
     ll n;
     cin >> n;
-    vector<ll> a(n);
-    for(ll i = 0; i < n; i++) cin >> a[i];
-    vector<ll> ans;
+    vector<ll> v(n);
     map<ll,ll> mp;
-    for(ll i = n-1; i >= 0; i--)
+    forn(i,n)
     {
-        if(mp.find(a[i]) == mp.end())
-        {
-            mp[a[i]] = 1;
-            ans.push_back(a[i]);
-        }
+        cin >> v[i];
+        mp[v[i]] = i;
     }
-    cout << ans.size() << endl;
-    for(ll i = ans.size()-1; i >=0 ; i--)
-    {
-        cout << ans[i] << " " ;
-    }
+    map<ll,ll> a;
+    for(auto it: mp)
+        a[it.second] = it.first;
+    cout << a.size() << endl;
+    for(auto it: a)
+    	cout << it.second << " ";
     cout << endl;
 }
+
 int main()
 {
  fast_cin();
- solve();
+ ll t;
+ t =1;
+ for(int it=1;it<=t;it++) {
+    solve();
+ }
  return 0;
 }

@@ -78,7 +78,11 @@ void solve(){
             cnt = 0;
         }
     }
-    if(cnt>=)
+    if(s[n-1]=='x')
+    {
+        if(cnt>=3)
+            x+=(cnt-2);
+    }
     cout << x << endl;
 }
 
