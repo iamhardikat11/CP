@@ -68,7 +68,7 @@ long long binpow(long long a, long long b, long long m) {
     return res;
 }
 void solve(){
-    ll a,b,c;
+    ll a,b,c,m;
     cin >> a >> b >> c;
     ll m = pow(10,9)+7;
     ll r = binpow(b,c,m-1);

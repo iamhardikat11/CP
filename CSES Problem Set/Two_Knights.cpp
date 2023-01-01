@@ -62,7 +62,16 @@ void solve(){
     cin >> n;
     forsn(i,1,n)
     {
-        cout << (ll)(pow(i,4)+pow(i,2)-2*pow(i,3)) << endl;
+        if(i==1) cout << 0 << endl;
+        else {
+            ll sum = 0;
+            for(ll j=i;j>=1;j--)
+            {
+                if(j==i) sum += j*(j*j-j);
+                else sum += 2*j*(i*i-j);
+            }
+            cout << sum << endl;
+        }
     }
 }
 
