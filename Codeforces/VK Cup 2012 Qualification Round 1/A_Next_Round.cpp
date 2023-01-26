@@ -58,34 +58,25 @@ void solve(){
     ll n,k;
     cin >> n >> k;
     vector<ll> v(n);
-    set<int, greater<int>> score;
-    for(auto &x: v) {
-        cin >> x;
-        score.insert(x);
-    }
-    vector<int> s;
-    k--;
-    while(k-- && it!=score.end());
-        it++;
-    if(it==score.end() && k!=0)
-        cout << 0 << endl;
-    else
+    forn(i,n)
     {
-        k = *it;
-        int i;
-        for(i=0;i<n;i++)
-        {
-            if(v[i]<=k)
-                break;
-        }
-        cout << i << endl;
+        cin >> v[i];
     }
+    ll r = v[k-1];
+    ll i = 0;
+    for(;i<n;i++)
+    {
+        if(v[i] < r)
+        {
+            break;
+        }
+    }
+    cout << i+1 << endl;
 }
 
 int main()
 {
  fast_cin();
- ll t;
  {
     solve();
  }
